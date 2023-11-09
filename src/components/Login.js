@@ -31,7 +31,7 @@ function Login() {
     return (
 
 
-        <div  className="flex justify-center items-center h-screen bg-cover bg-center">
+        <div  className="flex justify-center items-center h-screen bg-cover bg-center bg-slate-500">
                 <form onSubmit={(e) => e.preventDefault()} className="w-full md:w-3/12 absolute p-12 bg-black my-36 mx-auto right-0 left-0 text-white rounded-lg bg-opacity-80 z-20">
                     <h1 className="font-bold text-3xl py-4">
                         Enter the GAME
