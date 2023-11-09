@@ -65,10 +65,14 @@ const Browse = () => {
     }
 
     return (
-        <div>
-            Current Score : - {yourTotalScore}
+        <div className="bg-black top-0 bottom-0 h-auto w-full">
+            <p className="p-4 font-bold  text-white text-2xl text-center mb-4 bg-yellow-300 bg-opacity-30 border-2 border-t-4 rounded-lg border-yellow-500 shadow-md shadow-yellow-400 hover:bg-opacity-50"
+            >Current Score :  {yourTotalScore}
+            </p>
             <QuizContainer />
-            <button onClick={logoutHandler} className="rounded-xl bg-yellow-400">SUBMIT</button>
+            <div className="flex justify-center">
+                <button onClick={logoutHandler} className="rounded-xl p-4 font-bold mb-4  text-white text-xl text-center bg-blue-700 bg-opacity-30 border-2 border-blue-500 shadow-md shadow-blue-900 hover:bg-opacity-50">SUBMIT</button>
+            </div>
         </div>
     )
 }
