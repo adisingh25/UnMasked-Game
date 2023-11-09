@@ -48,11 +48,31 @@ const LeaderBoard = () => {
     }
 
     return (
-        <div>
-            {players?.map((o) => (
-              <LeaderBoardCard key={o.userUsn} name={o.userName} score={o.userScore} usn={o.userUsn} />
-          ))}
-        </div>
+        <div className="bg-gray-800 p-4">
+        <table className="table-auto w-full bg-gray-900 text-white shadow-lg overflow-hidden rounded-lg">
+          <thead className="bg-gray-700">
+            <tr>
+              <th className="px-4 py-2">Name</th>
+              <th className="px-4 py-2">USN</th>
+              <th className="px-4 py-2">Score</th>
+            </tr>
+          </thead>
+          <tbody>
+            {players?.map((o, index) => (
+              <tr
+                key={index}
+                className={`transition-colors duration-300 ${
+                  index % 2 === 0 ? "bg-gray-800 hover:bg-gray-700" : "bg-gray-900 hover:bg-gray-800"
+                }`}
+              >
+                <td className="border px-4 py-2">{o.userName}</td>
+                <td className="border px-4 py-2">{o.userUsn}</td>
+                <td className="border px-4 py-2">{o.userScore}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     )
 }
 
