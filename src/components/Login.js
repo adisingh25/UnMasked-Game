@@ -6,7 +6,7 @@ import { toggleGame, updateName, updateUsn } from "../utils/loginSlice";
 function LeftDescription() {
   return (
     <div className="flex flex-col justify-center items-start w-full md:w-6/12 p-8 bg-gray-900 text-gray-200 overflow-auto h-screen">
-      <h1 className="font-bold text-4xl mb-4">Unasked</h1>
+      <h1 className="font-bold text-4xl mb-4">UnMasked</h1>
       <p className="text-lg">
         Uncover the secrets within these encrypted messages, each accompanied by captivating stories offering hints about the cryptographic methods used. It's a thrilling twist that will keep you on the edge of your seat! 🧐💥
       </p>
