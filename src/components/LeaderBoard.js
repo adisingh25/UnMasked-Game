@@ -48,7 +48,7 @@ const LeaderBoard = () => {
     }
 
     return (
-        <div className="bg-gray-800 p-4 h-screen">
+        <div className="bg-gray-800 p-4 overflow-auto h-screen">
         <table className="table-auto w-full bg-gray-900 text-white shadow-lg overflow-hidden rounded-lg">
           <thead className="bg-gray-700">
             <tr>
