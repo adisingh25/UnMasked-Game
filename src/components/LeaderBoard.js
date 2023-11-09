@@ -48,8 +48,8 @@ const LeaderBoard = () => {
     }
 
     return (
-        <div className="bg-gray-800 p-4 overflow-auto h-screen">
-        <table className="table-auto w-full bg-gray-900 text-white shadow-lg overflow-hidden rounded-lg">
+        <div className="bg-gray-800 p-4 h-screen overflow-auto">
+        {/* <table className="table-auto w-full bg-gray-900 text-white shadow-lg overflow-hidden rounded-lg">
           <thead className="bg-gray-700">
             <tr>
               <th className="px-4 py-2">Name</th>
@@ -71,7 +71,11 @@ const LeaderBoard = () => {
               </tr>
             ))}
           </tbody>
-        </table>
+        </table> */}
+        <h2 className="p-4 font-bold  text-white text-2xl text-center mb-4 bg-yellow-300 bg-opacity-30 border-2 border-t-4 rounded-xl border-yellow-500 shadow-md shadow-yellow-400 hover:bg-opacity-50">LEADER BOARD</h2>
+            {players?.map((o) => (
+              <LeaderBoardCard key={o.userUsn} name={o.userName} score={o.userScore} usn={o.userUsn} />
+          ))}
       </div>
     )
 }
