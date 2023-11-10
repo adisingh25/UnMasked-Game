@@ -44,8 +44,8 @@ function RightLoginForm() {
  
 
   return (
-    <div className="w-full md:w-6/12 p-8 bg-gray-800 text-white">
-      <form onSubmit={(e) => e.preventDefault()} className="w-full md:w-5/12 absolute p-12 bg-black my-36 mx-auto right-auto text-white rounded-lg bg-opacity-80 z-20">
+    <div className="w-full md:w-6/12 p-8 bg-gray-800 text-white h-screen overflow-auto">
+      <form onSubmit={(e) => e.preventDefault()} className="w-8/12 mx-16 my-16 md:w-5/12 absolute p-12 bg-black md:my-36 md:mx-auto right-auto text-white rounded-lg bg-opacity-80 z-20">
         <h1 className="font-bold text-3xl py-4">
           Enter the GAME
         </h1>
@@ -92,7 +92,7 @@ function Login() {
   }, []);
 
   return (
-    <div className="flex">
+    <div className="flex flex-col md:flex-row">
       <LeftDescription />
       <RightLoginForm />
     </div>
