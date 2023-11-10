@@ -1,0 +1,1 @@
+export const GAMEIDS = process.env.REACT_APP_GAME_IDS

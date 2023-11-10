@@ -2,6 +2,7 @@ import { useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { toggleGame, updateName, updateUsn } from "../utils/loginSlice";
+import { GAMEIDS } from "../utils/constants";
 
 function LeftDescription() {
   return (
@@ -17,22 +18,30 @@ function LeftDescription() {
 function RightLoginForm() {
   const name = useRef(null);
   const usn = useRef(null);
+  const gameId = useRef(null);
   const navigate = useNavigate();
-  const showBrowse = useSelector((store) => store.login.startGame);
+  // const showBrowse = useSelector((store) => store.login.startGame);
   const dispatch = useDispatch();
+  const gameIds = JSON.parse(GAMEIDS);
 
   const handleButtonClick = () => {
-    dispatch(toggleGame());
-    dispatch(updateName(name.current.value));
-    dispatch(updateUsn(usn.current.value));
-    navigate("/browse");
+    if(!name.current.value || !usn.current.value || !gameId.current.value) {
+      navigate("/")
+    }
+    else {
+      if(!gameIds.includes(gameId.current.value)) {
+        navigate("/")
+      }
+      else {
+        dispatch(toggleGame());
+        dispatch(updateName(name.current.value));
+        dispatch(updateUsn(usn.current.value));
+        navigate("/browse");
+      }
+    }
   };
 
-  useEffect(() => {
-    if (showBrowse) {
-      navigate("/browse");
-    }
-  }, []);
+ 
 
   return (
     <div className="w-full md:w-6/12 p-8 bg-gray-800 text-white">
@@ -53,6 +62,12 @@ function RightLoginForm() {
           placeholder="USN"
           className="p-4 my-4 w-full bg-gray-700"
         />
+        <input
+          ref={gameId}
+          type="text"
+          placeholder="Game ID"
+          className="p-4 my-4 w-full bg-gray-700"
+        />
 
         <button
           className="p-4 my-6 bg-red-700 w-full rounded-lg"
@@ -66,6 +81,16 @@ function RightLoginForm() {
 }
 
 function Login() {
+
+  const navigate = useNavigate();
+  const showBrowse = useSelector((store) => store.login.startGame);
+
+  useEffect(() => {
+    if (showBrowse) {
+      navigate("/browse");
+    }
+  }, []);
+
   return (
     <div className="flex">
       <LeftDescription />
