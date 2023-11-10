@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import LeaderBoardCard from "./LeaderBoardCard";
+import { RESULT_URl } from "../utils/constants";
 
 
 const LeaderBoard = () => {
@@ -26,7 +27,7 @@ const LeaderBoard = () => {
       };
 
     const api_call = async () => {
-        const respose = await fetch("https://unmasked-game-88f45-default-rtdb.firebaseio.com/result.json");
+        const respose = await fetch(RESULT_URl);
         const data = await respose.json();
         const obj = []
 

@@ -5,7 +5,7 @@ import { toggleGame } from "../utils/loginSlice";
 import { addQuestions } from "../utils/questionSlice";
 import QuizContainer from "./QuizContainer";
 import { updateName,updateUsn } from "../utils/loginSlice";
-
+import { SUBMIT_URL, QUIZ_URL } from "../utils/constants";
 
 
 const Browse = () => {
@@ -32,7 +32,7 @@ const Browse = () => {
     }, [])
 
     const getData = async() => {
-        const respose = await fetch("https://unmasked-game-88f45-default-rtdb.firebaseio.com/quiz.json");
+        const respose = await fetch(QUIZ_URL);
         const data = await respose.json();
         // console.log(data);
         dispatch(addQuestions(data));
@@ -51,7 +51,7 @@ const Browse = () => {
     }
 
     const uploadData = async (playerName, playerUsn, playerScore, time) => {
-        await fetch("https://unmasked-game-88f45-default-rtdb.firebaseio.com/result.json", {
+        await fetch(SUBMIT_URL, {
             method : 'POST',
             body: JSON.stringify({
                 user : {

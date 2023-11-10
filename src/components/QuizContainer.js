@@ -9,7 +9,7 @@ const QuizContainer = () => {
     return (
         <div>
             {questions?.map((q) => (
-                <QuizCard key={q.key} head={q.question} answer={q.answer} marks={q.marks} id={q.key} />
+                <QuizCard key={q.key} head={q.question} qid={q.qid} uid={q.uid} marks={q.marks} id={q.key} tag={q.tag}/>
               ))}
         </div>
     )
